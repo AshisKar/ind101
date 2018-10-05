@@ -5,7 +5,7 @@ from .models import Oppurtunities
 
 
 def search(request):
-
+    import ipdb;ipdb.set_trace()
     if request.method == 'POST':
         form = SearchForm(request.POST)
         if form.is_valid():
@@ -16,5 +16,5 @@ def search(request):
     else:
         form = SearchForm()
 
-        return render(request, 'search_form.html', {'form': form})
+        return render(request, 'search/search.html', {'form': form})
 
