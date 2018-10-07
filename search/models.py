@@ -1,5 +1,5 @@
-import math
-from django.contrib.auth.models import User
+import Enum
+
 from django.db import models
 
 
@@ -15,7 +15,15 @@ GENDER = (
 )
 
 
-class Oppurtunities(models.Model):
+class OpportunityType(Enum):
+    """
+    Opportunity type to maintain its usage across the project
+    """
+    GOVT = 'govt'
+    PRIVATE = 'private'
+
+
+class Opportunity(models.Model):
     name = models.TextField(max_length=100)
     type = models.CharField(max_length=7, choices=TYPE, default='govt')
     brief_info = models.TextField(max_length=1000)
