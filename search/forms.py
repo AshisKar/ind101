@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Oppurtunities
+from .models import Opportunity
 
 
 class SearchForm(forms.ModelForm):
@@ -8,5 +8,5 @@ class SearchForm(forms.ModelForm):
     annual_income = forms.CharField()
 
     class Meta:
-        model = Oppurtunities
-        fields = ['age_criteria', 'gender_criteria']
+        model = Opportunity
+        fields = ['age_criteria', 'gender_criteria','annual_income_range', 'source_of_livelihood']

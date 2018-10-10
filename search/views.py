@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import  SearchForm
-from .models import Oppurtunities
+from .models import Opportunity
 
 
 def search(request):
@@ -10,7 +10,7 @@ def search(request):
         if form.is_valid():
             gender_criteria = form.cleaned_data.get('gender_criteria')
             age_criteria = form.cleaned_data.get('age_criteria')
-            oppurtunity = Oppurtunities.objects.filter(gender_criteria=gender_criteria, age_criteria=age_criteria )
+            oppurtunity = Opportunity.objects.filter(gender_criteria=gender_criteria, age_criteria=age_criteria )
             return render(request, 'results.html', {'oppurtunity': oppurtunity})
     else:
         form = SearchForm()
