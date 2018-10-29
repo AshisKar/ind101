@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Oppurtunities
+from .models import Scheme
 
-admin.site.register(Opportunity)
+admin.site.register(Scheme)

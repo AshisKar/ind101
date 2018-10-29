@@ -39,7 +39,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='postgres://ind101:ind101@localhost/ind101'),
+    # 'default': env.db('DATABASE_URL', default='postgres://ind101:ind101@localhost/ind101'),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ind101',
+        'USER': 'ind101user',
+        'PASSWORD': 'k@r@shis064',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 

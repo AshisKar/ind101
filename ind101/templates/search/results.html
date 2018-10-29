@@ -8,5 +8,16 @@
 {% endblock %}
 
 {% block content %}
-  
+<h1>You are eligible for</h1>
+{% if scheme_list %}
+<ul>
+  {% for scheme in opportunity_list %}
+  <li>
+    <a href="{{ scheme.get_absolute_url }}">{{ scheme.title }}</a> ({{book.author}})
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No opportunities now. Have patience</p>
+{% endif %}
 {% endblock %}

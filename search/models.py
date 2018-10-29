@@ -1,7 +1,5 @@
-import Enum
-
 from django.db import models
-
+from enum import Enum
 
 TYPE = (
     ('govt', 'GOVT'),
@@ -22,7 +20,8 @@ Occupation = (
 
 )
 
-class OpportunityType(Enum):
+
+class SchemeType(Enum):
     """
     Opportunity type to maintain its usage across the project
     """
@@ -30,14 +29,18 @@ class OpportunityType(Enum):
     PRIVATE = 'private'
 
 
-class Opportunity(models.Model):
+class Scheme(models.Model):
     name = models.TextField(max_length=100)
     type = models.CharField(max_length=7, choices=TYPE, default='govt')
     brief_info = models.TextField(max_length=1000)
     age_criteria = models.IntegerField()
     gender_criteria = models.CharField(max_length=6, choices=GENDER, default='both')
-    annual_income_range = models.IntegerField
-    source_of_livelihood = models.CharField(choices= Occupation, default = 'UNEMPLOYED')
+    annual_income_range = models.IntegerField()
+    source_of_livelihood = models.CharField(max_length=10, choices=Occupation, default='UNEMPLOYED')
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance of the model."""
+        return reverse('scheme-detail-view', args=[str(self.id)])
