@@ -1,0 +1,6 @@
+{
+  "python.linting.pylintEnabled": true,
+  "kite.editorMetricsEnabled": "yes",
+  "python.dataScience.enabled": false,
+  "python.dataScience.allowImportFromNotebook": false
+}

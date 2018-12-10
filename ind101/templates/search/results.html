@@ -1,23 +1,39 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}India 101{% endblock %}
+{% load humanize %}
 
-{% block breadcrumb %}
-
-  <li class="breadcrumb-item active">Results based on your information</li>
-{% endblock %}
+{% block title %} | Search Results {% endblock %}
 
 {% block content %}
-<h1>You are eligible for</h1>
-{% if scheme_list %}
-<ul>
-  {% for scheme in opportunity_list %}
-  <li>
-    <a href="{{ scheme.get_absolute_url }}">{{ scheme.title }}</a> ({{book.author}})
-  </li>
-  {% endfor %}
-</ul>
-{% else %}
-<p>No opportunities now. Have patience</p>
-{% endif %}
-{% endblock %}
+<section id="showcase-inner" class="showcase-search text-white py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <form action="{% url 'search' %}">
+            <!-- Form Row 1 -->
+
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{% url 'listings' %}">Browse Listings</a>
+          </li>
+          <li class="breadcrumb-item active"> Search Results</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
